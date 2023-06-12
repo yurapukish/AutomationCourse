@@ -19,16 +19,15 @@ Logic:
 2) Iterate over the text and count each vowel
 3) Print the result
 """
-vowels = ('a', 'e', 'i', 'o', 'u')
-table_style = (32, 12)
-print('-' * table_style[0])
-print(f"| {'vowel':^{table_style[1]}} |  {'count':^{table_style[1]}} |")
-print('-' * table_style[0])
-for vowel in vowels:
-    print((f'| {vowel:^{table_style[1]}} -> '
-          f'{poem_text.lower().count(vowel):^{table_style[1]}} |'))
-print('-' * table_style[0])
-
+vowels_be_counted = ('a', 'e', 'i', 'o', 'u')
+global_width, row_width = 32, 12
+print('-' * global_width)
+print(f"| {'vowel':^{row_width}} |  {'count':^{row_width}} |")
+print('-' * global_width)
+for vowel in vowels_be_counted:
+    print((f'| {vowel:^{row_width}} -> '
+           f'{poem_text.lower().count(vowel):^{row_width}} |'))
+print('-' * global_width)
 
 # task 2
 """
