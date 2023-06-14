@@ -9,6 +9,8 @@ and print it as small table.
 
 """
 
+from colorama import Fore, Style
+
 
 def return_list_slice(sequence: list):
     """
@@ -49,7 +51,7 @@ def count_genders(people_list: list):
             male += 1
     global_width, row_width = 32, 12
 
-    return print('-' * global_width, '\n',
+    return print('-' * global_width, ' ', '    \n',
                  f"| {'Sex':^{row_width}} |  {'Count':^{row_width}} |", '\n',
                  '-' * global_width + '\n',
                  f"| {'female':^{row_width}} |  {female:^{row_width}} |", '\n',
@@ -99,10 +101,19 @@ people = [
     ('Mike', 55, 55, 'Johnson', 'male')]
 
 # task 1
+print(Fore.YELLOW, 'Task 1', '\n',
+      Fore.RED + 'List before sorting ->' + Style.RESET_ALL,
+      people, end='\n')
+
 people.sort(key=lambda x: (x[1], x[4]))
+print(Fore.GREEN, 'List after sorting ->', Style.RESET_ALL, people, end='\n\n')
 
 # task 2
 new_people_list = return_list_slice(people)
+print(Fore.YELLOW, 'Task 2', '\n',
+      Fore.MAGENTA + 'Exclude first and last 2 elements in list ->',
+      Style.RESET_ALL, new_people_list, end='\n\n')
 
 # task 3
+print(Fore.YELLOW, 'Task 3' + Style.RESET_ALL)
 count_genders(new_people_list)
