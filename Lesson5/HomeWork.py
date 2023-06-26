@@ -1,7 +1,14 @@
-# Exists some car data with color, year, engine_volume, car type , price
-# We have search_criteria as tuple of ( year>= , engine_volume >= , price<=)
-# write code that will help us to get cars that satisfy search_criteria.
-# Cars should be sorted by price ascending. We should print up to five first found elements
+"""
+HomeWork after lesson 5.
+
+Exists some car data with color, year, engine_volume, car type , price
+We have search_criteria as tuple of ( year>= , engine_volume >= , price<=)
+write code that will help us to get cars that satisfy search_criteria.
+Cars should be sorted by price ascending. We should print up to
+five first found elements
+"""
+import time
+
 car_data = {
     'Mercedes': ('silver', 2019, 1.8, 'sedan', 50000),
     'Audi': ('black', 2020, 2.0, 'sedan', 55000),
@@ -41,6 +48,35 @@ car_data = {
     'Chevy': ('red', 2017, 2.4, 'pickup', 35000),
     'Dodge Ram': ('white', 2020, 3.6, 'pickup', 45000),
     'Ford F-Series': ('gray', 2021, 3.5, 'pickup', 50000),
-    'Nissan Titan': ('silver', 2018, 5.6, 'pickup', 35000)
-}
+    'Nissan Titan': ('silver', 2018, 5.6, 'pickup', 35000)}
+
 search_criteria = (2017, 1.6, 36000)
+
+"""
+For real life I would rather use first method, cause second method is
+something new for that I learned on the course. Also for 1 method we can
+use  list comprehension, but it's the next lessons).
+
+First solution:
+1) Create empty list
+2) Add all cars that satisfy search_criteria
+3) Sort list by price ascending
+4) Print first 5 cars
+5) Print time taken by first method
+"""
+start_time = time.time()
+# first create list of cars that satisfy search_criteria
+searched_cars = []
+for key, values in car_data.items():
+    if all([
+        values[1] >= search_criteria[0],
+        values[2] >= search_criteria[1],
+        values[4] <= search_criteria[2],
+    ]):
+        searched_cars.append((key, values))
+# sort list of cars by price ascending and return first 5 results
+searched_cars.sort(key=lambda car: car[1][4])
+end_time = time.time()
+elapsed_time = end_time - start_time
+print(searched_cars[:5])
+print(f'Time taken by first method: {elapsed_time:.6f} seconds')
