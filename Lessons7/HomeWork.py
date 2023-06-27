@@ -64,3 +64,6 @@ def num_to_text_converter(num):
         dozens = dozens - units
         return (f'{number_dict.get(hundred)} hundred '
                 f'{dozens_dict.get(dozens)} {number_dict.get(units)}'.title())
+
+
+print(num_to_text_converter(300))
