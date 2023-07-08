@@ -26,10 +26,10 @@ try:
             text = input_file.read()
 
             # Step 2: Find all matches using a regular expression
-            matches = re.findall(r'[a-zA-Z]', text)
-
+            # Update here using finditer
+            matches = re.finditer(r'[a-zA-Z]', text)
         # Step 3: Write the matches and their indices to the output file
-        output_file.writelines(f'{el:^7} -> {text.index(el):^7}\n'
+        output_file.writelines(f'{el.group():^7} -> {el.start():^7}\n'
                                for el in matches)
         # Add footer to the output file
         output_file.write(f'{"#" * 20}\n')
