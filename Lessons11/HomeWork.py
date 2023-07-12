@@ -22,11 +22,11 @@ def chunk_generator(sequence, chunk_size):
     :return: produces  lists with length equal to chunk size
     """
     start, end = 0, chunk_size
-    # determine the number of sub-chunks
-    sub_chunks = (len(sequence) // chunk_size
-                  if len(sequence) % chunk_size == 0
-                  else (len(sequence) // chunk_size) + 1)
-    for _ in range(sub_chunks):
+    # determine the number of chunks
+    chunks = (len(sequence) // chunk_size
+              if len(sequence) % chunk_size == 0
+              else (len(sequence) // chunk_size) + 1)
+    for _ in range(chunks):
         yield list(sequence[start:end])
         start, end = start + chunk_size, end + chunk_size
 
