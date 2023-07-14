@@ -27,4 +27,4 @@ def sum_lists_values(list_with_values: list, count: int = None) -> int:
     return count
 
 
-print(f'Final result is: {sum_lists_values(y)}')
+print(f'Target sum = {sum_lists_values(y)}')
